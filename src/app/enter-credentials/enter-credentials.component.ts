@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-enter-credentials',
@@ -8,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class EnterCredentialsComponent implements OnInit {
 
+  personalDetails: FormGroup;
   constructor() { }
-
+ 
   ngOnInit() {
+    this.personalDetails=new FormGroup({
+      name:new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.email]),
+      location: new FormControl("",[Validators.required]),
+      image : new FormControl("",Validators.required)
+    })
   }
 
 }
-
-var pageTitle = "HI";
+var imagePath ="./assets/Capture.PNG"
